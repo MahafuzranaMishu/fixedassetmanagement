@@ -9,7 +9,9 @@ class UserController extends Controller
 {
     public function User()
     {
-        return view('backend.layouts.User.list');
+        $users=User::all();
+        
+        return view('backend.layouts.User.list',compact('users'));
     }
     public function create()
     {
@@ -26,6 +28,6 @@ class UserController extends Controller
             'mobileno'=>$request->mobileno
         ]);
               
-        return redirect()->back();
+        return redirect()->route('User.list');
     }
 }

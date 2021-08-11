@@ -20,7 +20,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('Manager.create')}}">
+            <a class="nav-link" href="{{route('Manager.list')}}">
               <span data-feather="users"></span>
               Manager
             </a>
@@ -38,7 +38,7 @@
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
-            <a class="nav-link" href="{{route('Stock.Create')}}">
+            <a class="nav-link" href="{{route('Stock.list')}}">
               <span data-feather="file-text"></span>
               Stock
             </a>
@@ -50,13 +50,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('Repair.create')}}">
+            <a class="nav-link" href="{{route('Repair.list')}}">
               <span data-feather="file-text"></span>
               Repair
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('Repair.list')}}">
               <span data-feather="file-text"></span>
               Report
             </a>

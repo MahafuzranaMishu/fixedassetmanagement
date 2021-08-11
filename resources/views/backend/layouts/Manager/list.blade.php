@@ -2,7 +2,7 @@
 @section('content')
 <h1>Manager List</h1>
 
-<a href="{{route('Manager.list')}}" class="btn btn-info">
+<a href="{{route('Manager.create')}}" class="btn btn-info">
     <i class="bi bi-list-nested"></i>
     Add New Manager</a>
 
@@ -16,24 +16,15 @@
     </tr>
     </thead>
     <tbody>
+
+        @foreach($Admins as $Admin)
     <tr>
-        <th scope="Name">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <th scope="row">{{$Admin->id}}</th>
+        <td>{{$Admin->name}}</td>
+        <td>{{$Admin->email}}</td>
+        <td>{{$Admin->mobileno}}</td>
     </tr>
-    <tr>
-        <th scope="Email">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-    </tr>
-    <tr>
-        <th scope="Phone number">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-    </tr>
+    @endforeach
     </tbody>
 </table>
 @endsection

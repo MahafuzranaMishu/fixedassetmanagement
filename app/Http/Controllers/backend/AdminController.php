@@ -9,11 +9,13 @@ class AdminController extends Controller
 {
     public function Admin()
     {
-        return view('backend.layouts.Manager.create');
+        $Admins=Admin::all();
+        return view('backend.layouts.Manager.list',compact('Admins'));
     }
     public function Create()
     {
-        return view('backend.layouts.Manager.list');
+        return view('backend.layouts.Manager.create');
+        
     }
     public function Store(Request $request)
     {
@@ -25,6 +27,6 @@ class AdminController extends Controller
             'password'=>$request->password,
             'mobileno'=>$request->mobileno
         ]);
-        return redirect()->back();     
+        return redirect()->route('Manager.list');    
        }  
 }

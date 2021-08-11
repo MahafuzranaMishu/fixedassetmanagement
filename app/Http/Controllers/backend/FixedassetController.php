@@ -9,7 +9,8 @@ class FixedassetController extends Controller
 {
     public function Asset()
     {
-        return view('backend.layouts.Asset.list');
+        $Assets=Asset::all();
+        return view('backend.layouts.Asset.list',compact('Assets'));
     }
     public function Create()
     {
@@ -29,6 +30,6 @@ class FixedassetController extends Controller
 
         ]);
               
-        return redirect()->back();
+        return redirect()->route('Asset.list'); 
     }
 }

@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 
 class AllocationController extends Controller
 {
-    public function Allocation()
+    public function Create()
     {
         return view('backend.layouts.Allocation.Create');
     }
-    Public function Create()
+    Public function Allocation()
     {
-        return view('backend.layouts.Allocation.list');
+        $Allocations=Allocation::all();
+        return view('backend.layouts.Allocation.list',compact('Allocations'));
     }
     public function Store(Request $request)
 
@@ -35,6 +36,6 @@ class AllocationController extends Controller
         ]);
 
               
-        return redirect()->back();
+        return redirect()->route('Allocation.list'); 
     }
 }

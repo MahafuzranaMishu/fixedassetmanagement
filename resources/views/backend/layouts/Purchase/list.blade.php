@@ -17,29 +17,17 @@
     </tr>
   </thead>
   <tbody>
+    @foreach($Purchases as $Purchase)
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row">{{$Purchase->id}}</th>
+      <td>{{$Purchase->name}}</td>
+      <td>{{$Purchase->details}}</td>
+      <td>{{$Purchase->price}}</td>
+      <td>{{$Purchase->image}}</td>
+      <td>{{$Purchase->status}}</td>
+      <td>{{$Purchase->buyingdate}}</td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+@endforeach
   </tbody>
 </table>
 @endsection

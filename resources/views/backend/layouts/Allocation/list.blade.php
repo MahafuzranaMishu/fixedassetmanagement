@@ -13,10 +13,21 @@
       <th scope="col">Asset ID</th>
       <th scope="col">Asset Name</th>
       <th scope="col">Details</th>
-      <th scope="col">date</th>
+      <th scope="col">Allocation date</th>
     </tr>
   </thead>
   <tbody>
+    @foreach($Allocations as $Allocation)
+  <tr>
+      <th scope="row">{{$Allocation->id}}</th>
+      <td>{{$Allocation->user_id}}</td>
+      <td>{{$Allocation->username}}</td>
+      <td>{{$Allocation->assets_id}}</td>
+      <td>{{$Allocation->assetname}}</td>
+      <td>{{$Allocation->details}}</td>
+      <td>{{$Allocation->allocationdate}}</td>
+    </tr>
+    @endforeach
   </tbody>
 </table>
 @endsection

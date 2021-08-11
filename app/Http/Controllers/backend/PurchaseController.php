@@ -9,7 +9,8 @@ class PurchaseController extends Controller
 {
     public function Purchase()
     {
-        return view('backend.layouts.Purchase.list');
+        $Purchases=Purchase::all();
+        return view('backend.layouts.Purchase.list',compact('Purchases'));
     }
 
     Public function Create()
@@ -31,6 +32,6 @@ class PurchaseController extends Controller
 
         ]);
               
-        return redirect()->back();
+        return redirect()->route('Purchase.list');  
     }
 }

@@ -9,31 +9,21 @@
 <table class="table">
     <thead>
     <tr>
-        <th scope="col">#</th>
+        <th scope="col">ID</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
         <th scope="col">Phone Number</th>
     </tr>
     </thead>
     <tbody>
+        @foreach($users as $User)
     <tr>
-        <th scope="Name">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <th scope="row">{{$User->id}}</th>
+        <td>{{$User->name}}</td>
+        <td>{{$User->email}}</td>
+        <td>{{$User->mobileno}}</td>
     </tr>
-    <tr>
-        <th scope="Email">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-    </tr>
-    <tr>
-        <th scope="Phone number">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-    </tr>
+    @endforeach
     </tbody>
 </table>
 @endsection

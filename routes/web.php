@@ -47,12 +47,15 @@ Route::get('/Purchase',[PurchaseController::class,'Purchase'])->name('Purchase.l
 Route::get('/Purchase/add',[PurchaseController::Class,'Create'])->name('Purchase.create');
 Route::post('/Purchase/store',[PurchaseController::Class,'Store'])->name('Purchase.store');
 
-Route::get('/Allocation/create',[AllocationController::class,'Allocation'])->name('Allocation.create');
-Route::get('/Allocation',[AllocationController::Class,'Create'])->name('Allocation.list');
+Route::get('/Allocation/create',[AllocationController::class,'Allocation'])->name('Allocation.list');
+Route::get('/Allocation',[AllocationController::Class,'Create'])->name('Allocation.create');
 Route::post('/Allocation/Store',[AllocationController::Class,'Store'])->name('Allocation.Store');
 
-Route::get('/Stock/create',[StockController::class,'Stock'])->name('Stock.Create');
+Route::get('/Stock/create',[StockController::class,'create'])->name('Stock.Create');
+Route::get('/stock/list',[StockController::class,'Stock'])->name('Stock.list');
+Route::post('/Stock/store',[StockController::class,'Store'])->name('stock.store');
 
 
-
-Route::get('/Repair/create',[RepairController::class,'Repair'])->name('Repair.create');
+Route::get('/Repair/create',[RepairController::class,'Create'])->name('Repair.create');
+Route::get('/Repair/add',[RepairController::class,'Repair'])->name('Repair.list');
+Route::post('/Repair/post',[RepairController::class,'Store'])->name('Repair.store');
