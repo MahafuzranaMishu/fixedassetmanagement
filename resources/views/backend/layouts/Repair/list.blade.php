@@ -25,4 +25,6 @@
     </tr>
     @endforeach
 </tbody>
+</table>
+{{$Repairs->links('pagination::bootstrap-4')}}
     @endsection

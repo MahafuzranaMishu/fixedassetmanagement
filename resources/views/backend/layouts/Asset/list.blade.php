@@ -9,6 +9,7 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Name</th>
+      <th scope="col">Category ID</th>
       <th scope="col">Details</th>
       <th scope="col">Price</th>
       <th scope="col">Image</th>
@@ -21,6 +22,7 @@
     <tr>
       <th scope="row">{{$Asset->id}}</th>
       <td>{{$Asset->name}}</td>
+      <td>{{$Asset->category_id}}</td>
       <td>{{$Asset->details}}</td>
       <td>{{$Asset->price}}</td>
       <td>{{$Asset->image}}</td>
@@ -30,4 +32,5 @@
 @endforeach
   </tbody>
 </table>
+{{$Assets->links('pagination::bootstrap-4')}}
 @endsection

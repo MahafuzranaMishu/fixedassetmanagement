@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\backend\EmployeController;
+use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\FixedassetController;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\UserController;
@@ -33,7 +34,12 @@ Route::get('/contact',[HomeController::Class,'contact']);
 
 Route::get('/User',[UserController::class,'User'])->name('User.list');
 Route::get('/user/create',[UserController::class,'create'])->name('User.create');
+Route::get('/user/login',[UserController::class,'login'])->name('User.login');
 Route::post('/user/store',[UserController::class,'store',])->name('User.store');
+
+Route::get('/categories',[CategoryController::class,'list'])->name('category.list');
+Route::get('/category/create',[CategoryController::class,'create'])->name('category.create');
+Route::post('/category/store',[CategoryController::class,'store'])->name('category.store');
 
 Route::get('/Asset',[FixedassetController::class,'Asset'])->name('Asset.list');
 Route::get('/Asset/add',[FixedassetController::class,'Create'])->name('Asset.create');

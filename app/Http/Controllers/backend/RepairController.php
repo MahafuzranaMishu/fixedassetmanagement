@@ -13,7 +13,7 @@ class RepairController extends Controller
     }
     public function Repair()
     {
-        $Repairs=Repair::all();
+        $Repairs=Repair::paginate(1);
         return view('backend.layouts.Repair.list',compact('Repairs'));
     }
     public function Store(Request $request)

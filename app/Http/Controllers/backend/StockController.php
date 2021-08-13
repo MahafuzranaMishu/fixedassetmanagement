@@ -13,7 +13,7 @@ class StockController extends Controller
     }
     public function Stock()
     {   
-        $Stocks=Stock::all();
+        $Stocks=Stock::paginate(1);
         return view('backend.layouts.Stock.list',compact('Stocks'));
     }
     public function Store(Request $request)

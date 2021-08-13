@@ -1,9 +1,9 @@
 @extends('backend.master')
 @section('content')
-<h1>Fixed Asset List</h1>
+<h1>FixedAsset Allocation List</h1>
 
 
-<a class="btn btn-primary" href="{{route('Allocation.create')}}" role="button">Create New Asset</a>
+<a class="btn btn-primary" href="{{route('Allocation.create')}}" role="button"> Add New Allocationt</a>
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -30,4 +30,5 @@
     @endforeach
   </tbody>
 </table>
+{{$Allocations->links('pagination::bootstrap-4')}}
 @endsection

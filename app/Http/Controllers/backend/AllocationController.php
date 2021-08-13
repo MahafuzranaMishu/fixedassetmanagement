@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\backend;
 use App\Models\Allocation;
+use App\Models\Asset;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -9,11 +11,13 @@ class AllocationController extends Controller
 {
     public function Create()
     {
-        return view('backend.layouts.Allocation.Create');
+        $Assets=Asset::all();
+        $Users=User::all();
+        return view('backend.layouts.Allocation.Create',compact('Assets','Users'));
     }
     Public function Allocation()
     {
-        $Allocations=Allocation::all();
+        $Allocations=Allocation::paginate(1);
         return view('backend.layouts.Allocation.list',compact('Allocations'));
     }
     public function Store(Request $request)

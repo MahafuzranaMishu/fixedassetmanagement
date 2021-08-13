@@ -30,4 +30,5 @@
 @endforeach
   </tbody>
 </table>
+{{$Purchases->links('pagination::bootstrap-4')}}
 @endsection

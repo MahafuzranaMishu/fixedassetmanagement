@@ -4,23 +4,42 @@
 
 <form action="{{route('Allocation.Store')}}" method="post">
         @csrf
+        
         <div class="form-group">
-            <label for="name">Enter User Id</label>
-            <input name="userid" id="name" type="text" class="form-control" placeholder="Enter user Id">
-        </div>
+                            <label for="User_ID">Select User ID</label>
+                            <select class="form-control" name="userid" id="">
+                                @foreach($Users as $user)
+                                <option value="{{$user->id}}">{{$user->name}}</option>
+                                @endforeach
+                            </select>
+         </div>
 
+         <div class="form-group">
+                            <label for="User_ID">Select User name</label>
+                            <select class="form-control" name="username" id="">
+                                @foreach($Users as $user)
+                                <option value="{{$user->name}}">{{$user->id}}</option>
+                                @endforeach
+                            </select>
+         </div>
+       
         <div class="form-group">
-            <label for="E">User Name</label>
-            <textarea class="form-control" name="username" id="E" type="text" placeholder="Enter  Name"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="p">Enter Asset Id</label>
-            <input name="assetid" id="name" type="text" class="form-control" placeholder="Enter Asset ID">
-        </div>
-        <div class="form-group">
-            <label for="ph">Asset Name</label>
-            <textarea class="form-control" name="assetname" id="ph" type="text" placeholder="Enter Asset name "></textarea>
-        </div>
+                            <label for="Asset_ID">Select Asset ID</label>
+                            <select class="form-control" name="assetid" id="">
+                                @foreach($Assets as $Asset)
+                                <option value="{{$Asset->id}}">{{$Asset->name}}</option>
+                                @endforeach
+                            </select>
+         </div>
+         <div class="form-group">
+                            <label for="Asset_name">Select Asset Name</label>
+                            <select class="form-control" name="assetname" id="">
+                                @foreach($Assets as $Asset)
+                                <option value="{{$Asset->name}}">{{$Asset->name}}</option>
+                                @endforeach
+                            </select>
+         </div>
+        
         <div class="form-group">
             <label for="st">Details</label>
             <textarea class="form-control" name="status" id="st" type="text" placeholder="Enter Details "></textarea>

@@ -8,9 +8,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('User.list')}}">
+            <a class="nav-link" href="{{route('User.login')}}">
               <span data-feather="file"></span>
               User
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('category.list')}}">
+              <span data-feather="shopping-cart"></span>
+              FixedAssets Category
             </a>
           </li>
           <li class="nav-item">

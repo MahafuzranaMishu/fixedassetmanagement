@@ -9,7 +9,7 @@ class PurchaseController extends Controller
 {
     public function Purchase()
     {
-        $Purchases=Purchase::all();
+        $Purchases=Purchase::Paginate(1);
         return view('backend.layouts.Purchase.list',compact('Purchases'));
     }
 

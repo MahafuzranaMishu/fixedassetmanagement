@@ -5,6 +5,14 @@
 <form action="{{route('Asset.store')}}" method="post">
         @csrf
         <div class="form-group">
+                            <label for="asset_name">Select Category</label>
+                            <select class="form-control" name="category_id" id="">
+                                @foreach($categories as $category)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
+                            </select>
+         </div>
+        <div class="form-group">
             <label for="name">Enter Asset Name</label>
             <input name="asset_name" id="name" type="text" class="form-control" placeholder="Enter Category Name">
         </div>

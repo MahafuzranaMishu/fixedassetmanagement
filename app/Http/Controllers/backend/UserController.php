@@ -17,6 +17,10 @@ class UserController extends Controller
     {
         return view('backend.layouts.User.create');
     }
+    public function login()
+    {
+        return view('backend.layouts.User.login');
+    }
     public function store(Request $request)
     {
        //DML-insert into categories (id, name,description) values('ame','description);

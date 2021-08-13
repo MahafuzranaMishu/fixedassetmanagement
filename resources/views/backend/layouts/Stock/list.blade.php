@@ -23,4 +23,6 @@
     </tr>
     @endforeach
 </tbody>
+</table>
+{{$Stocks->links('pagination::bootstrap-4')}}
     @endsection
