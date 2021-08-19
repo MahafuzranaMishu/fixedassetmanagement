@@ -26,4 +26,5 @@
     @endforeach
     </tbody>
 </table>
+{{$users->links('pagination::bootstrap-4')}}
 @endsection

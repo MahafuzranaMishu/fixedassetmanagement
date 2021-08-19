@@ -10,7 +10,7 @@ class FixedassetController extends Controller
 {
     public function Asset()
     {
-        $Assets=Asset::paginate(1);
+        $Assets=Asset::with('Category')->paginate(1);
         return view('backend.layouts.Asset.list',compact('Assets'));
         
     }

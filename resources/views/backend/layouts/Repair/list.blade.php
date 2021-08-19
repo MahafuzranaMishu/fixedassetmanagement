@@ -18,7 +18,7 @@
     @foreach($Repairs as $Repair)
     <tr>
       <th scope="row">{{$Repair->id}}</th>
-      <td>{{$Repair->assets_id}}</td>
+      <td>{{$Repair->Asset->name}}</td>
       <td>{{$Repair->details}}</td>
       <td>{{$Repair->repaircompanyname}}</td>
       <td>{{$Repair->deliverydate}}

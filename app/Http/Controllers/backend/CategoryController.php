@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\backend;
 use App\Models\Category;
+use App\Models\Asset;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -31,5 +32,10 @@ class CategoryController extends Controller
         ]);
 
         return redirect()->route('category.list');
+    }
+    public function allasset($id)
+    {
+        $assets=Asset::where('category_id',$id)->get();
+        return view('backend.layouts.category.assetlist',compact('assets'));
     }
 }

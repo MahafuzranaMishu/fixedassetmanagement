@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\backend;
 use App\Models\Repair;
+use App\Models\Asset;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class RepairController extends Controller
     }
     public function Repair()
     {
-        $Repairs=Repair::paginate(1);
+        $Repairs=Repair::with('Asset')->paginate(1);
         return view('backend.layouts.Repair.list',compact('Repairs'));
     }
     public function Store(Request $request)

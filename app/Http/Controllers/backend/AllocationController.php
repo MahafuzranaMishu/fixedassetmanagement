@@ -17,7 +17,8 @@ class AllocationController extends Controller
     }
     Public function Allocation()
     {
-        $Allocations=Allocation::paginate(1);
+        $Allocations=Allocation::with('Asset','User')->paginate(1);
+      
         return view('backend.layouts.Allocation.list',compact('Allocations'));
     }
     public function Store(Request $request)

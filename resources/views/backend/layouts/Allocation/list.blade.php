@@ -9,7 +9,7 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">User ID</th>
-      <th scope="col">Name</th>
+      <!-- <th scope="col">Name</th> -->
       <th scope="col">Asset ID</th>
       <th scope="col">Asset Name</th>
       <th scope="col">Details</th>
@@ -20,9 +20,9 @@
     @foreach($Allocations as $Allocation)
   <tr>
       <th scope="row">{{$Allocation->id}}</th>
-      <td>{{$Allocation->user_id}}</td>
-      <td>{{$Allocation->username}}</td>
-      <td>{{$Allocation->assets_id}}</td>
+      <td>{{$Allocation->User->name}}</td>
+      <!-- <td>{{$Allocation->username}}</td> -->
+      <td>{{$Allocation->Asset->name}}</td>
       <td>{{$Allocation->assetname}}</td>
       <td>{{$Allocation->details}}</td>
       <td>{{$Allocation->allocationdate}}</td>

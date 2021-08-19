@@ -22,7 +22,7 @@
     <tr>
       <th scope="row">{{$Asset->id}}</th>
       <td>{{$Asset->name}}</td>
-      <td>{{$Asset->category_id}}</td>
+      <td>{{$Asset->category->name}}</td>
       <td>{{$Asset->details}}</td>
       <td>{{$Asset->price}}</td>
       <td>{{$Asset->image}}</td>

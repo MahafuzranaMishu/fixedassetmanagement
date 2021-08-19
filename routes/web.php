@@ -29,6 +29,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/contact',function (){
     return view('backend.layouts.contact');
 });*/
+Route::get('/test',function (){
+    return view('backend.layouts.dash');
+});
 Route::get('/',[HomeController::class,'home'])->name('home.start');
 Route::get('/contact',[HomeController::Class,'contact']);
 
@@ -40,6 +43,8 @@ Route::post('/user/store',[UserController::class,'store',])->name('User.store');
 Route::get('/categories',[CategoryController::class,'list'])->name('category.list');
 Route::get('/category/create',[CategoryController::class,'create'])->name('category.create');
 Route::post('/category/store',[CategoryController::class,'store'])->name('category.store');
+Route::get('/category/{id}/assets',[CategoryController::class,'allasset'])->name('category.asset');
+
 
 Route::get('/Asset',[FixedassetController::class,'Asset'])->name('Asset.list');
 Route::get('/Asset/add',[FixedassetController::class,'Create'])->name('Asset.create');

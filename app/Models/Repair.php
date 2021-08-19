@@ -9,4 +9,8 @@ class Repair extends Model
 {
     protected $guarded=[];
     use HasFactory;
+    public function Asset()
+    {
+        return $this->belongsTo(Asset::class,'assets_id','id');
+    }
 }
