@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function login()
+    {
+        return view('backend.layouts.Manager.login');
+    }
     public function Admin()
     {
         $Admins=Admin::all();

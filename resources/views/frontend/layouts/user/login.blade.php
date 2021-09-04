@@ -1,3 +1,5 @@
+@extends('frontend.master')
+@section('contents')
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +50,7 @@
 <i class="fa fa-lock" aria-hidden="true"></i>
 </span>
 </div>
-<a href="{{route('User.list')}}" class="container-login100-form-btn">
+<a href="#" class="container-login100-form-btn">
     <i class="login100-form-btn">Login</i>
     </a>
 <div class="text-center p-t-12">
@@ -60,7 +62,7 @@ Username / Password?
 </a>
 </div>
 <div class="text-center p-t-136">
-<a class="txt2" href="{{route('User.create')}}">
+<a class="txt2" href="#">
 Create your Account
 <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 </a>
@@ -97,3 +99,4 @@ Create your Account
 <script defer src="{{url('/js/beacon.min.js')}}" data-cf-beacon='{"rayId":"67d70ec76db0494f","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.8.0","si":10}'></script>
 </body>
 </html>
+@endsection
