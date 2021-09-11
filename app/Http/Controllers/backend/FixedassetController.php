@@ -21,14 +21,25 @@ class FixedassetController extends Controller
     }
     public function Store(Request $request)
     {
+        dd($request->all());
        //DML-insert into categories (id, name,description) values('ame','description);
 //        left- column name   | right - input field name of form
+
+   $fileName='';
+   if($request->hasFile('image'))
+   {
+    $file=$request->file('image');
+   //generate file name here
+    $fileName=date('Ymdhms').'.'.$file->getClientOriginalExtension();
+    $file->storeAs('/uploads',$fileName);
+   }
        Asset::create([
            'name'=>$request->asset_name,
            'category_id'=>$request->category_id,
            'details'=>$request->Details,
             'price'=>$request->price,
-            'image'=>$request->image,
+            'unit'=>$request->unit,
+            'image'=>$fileName,
             'status'=>$request->status,
             'buyingdate'=>$request->date
 

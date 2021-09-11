@@ -28,7 +28,7 @@ class RepairController extends Controller
        Repair::create([
            
            
-           'assets_id'=>$request->assetid,
+           'asset_id'=>$request->assetid,
             'assetname'=>$request->assetname,
             'details'=>$request->details,
             'repaircompanyname'=>$request->Companyname,

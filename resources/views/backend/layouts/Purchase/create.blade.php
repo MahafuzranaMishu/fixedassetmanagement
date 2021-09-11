@@ -5,8 +5,25 @@
 <form action="{{route('Purchase.store')}}" method="post">
         @csrf
         <div class="form-group">
-            <label for="name">Enter Asset Name</label>
-            <input name="asset_name" id="name" type="text" class="form-control" placeholder="Enter Category Name">
+                            <label for="asset_name">Select Asset</label>
+                            <select class="form-control" name="asset_id" id="">
+                                @foreach($Assets as $Asset)
+                                <option value="{{$Asset->id}}">{{$Asset->name}}</option>
+                                @endforeach
+                            </select>
+         </div>
+         <div class="form-group">
+                            <label for="asset_name">Select Supplier</label>
+                            <select class="form-control" name="supplier_id" id="">
+                                @foreach($suppliers as $supplier)
+                                <option value="{{$supplier->id}}">{{$supplier->name}}</option>
+                                @endforeach
+                            </select>
+         </div>
+        
+         <div class="form-group">
+            <label for="E">Units</label>
+            <textarea class="form-control" name="Unit" id="E" type="text" placeholder="Enter Details"></textarea>
         </div>
 
         <div class="form-group">

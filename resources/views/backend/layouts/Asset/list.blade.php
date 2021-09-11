@@ -13,6 +13,7 @@
       <th scope="col">Details</th>
       <th scope="col">Price</th>
       <th scope="col">Image</th>
+      <th scope="col">Unit</th>
       <th scope="col">Status</th>
       <th scope="col">Buyingdate</th>
     </tr>
@@ -25,7 +26,10 @@
       <td>{{$Asset->category->name}}</td>
       <td>{{$Asset->details}}</td>
       <td>{{$Asset->price}}</td>
-      <td>{{$Asset->image}}</td>
+      <td>
+      <img src="{{url('/uploads/'.$Asset->image)}}" width="100px" alt="product image">
+      </td>
+      <td>{{$Asset->unit}}</td>
       <td>{{$Asset->status}}</td>
       <td>{{$Asset->buyingdate}}</td>
     </tr>

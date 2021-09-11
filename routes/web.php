@@ -6,6 +6,7 @@ use App\Http\Controllers\backend\FixedassetController;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\PurchaseController;
+use App\Http\Controllers\backend\SupplierController;
 use App\Http\Controllers\backend\StockController;
 use App\Http\Controllers\backend\AllocationController;
 use App\Http\Controllers\backend\RepairController;
@@ -37,9 +38,13 @@ Route::get('/about',[FrontendHome::class,'about'])->name('about.home');
 
 Route::get('/user/signup',[UserloginController::class,'signup'])->name('User.signup');
 Route::get('/user/login',[UserloginController::class,'login'])->name('Users.login');
-Route::post('/user/store',[UserloginController::class,'signupstore',])->name('signup.store');
+Route::post('/user/login/post',[UserloginController::class,'dologin'])->name('Users.do.login');
 
-Route::get('/Admin/login',[AdminController::class,'login'])->name('Manager.login');
+Route::post('/user/store',[UserloginController::class,'signupstore'])->name('signup.store');
+
+Route::get('/Admin/login',[UserController::class,'login'])->name('Admin.login');
+Route::post('/Admin/login/post',[UserController::class,'loginpost'])->name('Admin.login.post');
+
 Route::group(['prefix'=>'Admin','middleware'=>'auth'],function(){
 
   /*  Route::get('/test',function (){
@@ -49,9 +54,11 @@ Route::group(['prefix'=>'Admin','middleware'=>'auth'],function(){
     Route::get('/contact',[HomeController::Class,'contact']);
     
     Route::get('/User',[UserController::class,'User'])->name('User.list');
-  Route::get('/user/create',[UserController::class,'create'])->name('User.create');
-    Route::get('/user/login',[UserController::class,'login'])->name('User.login');
+    Route::get('/Admin',[UserController::class,'Admin'])->name('Admin.list');
+    Route::get('/user/create',[UserController::class,'create'])->name('User.create');
+    //Route::get('/user/login',[UserController::class,'login'])->name('User.login');
     Route::post('/user/store',[UserController::class,'store',])->name('User.store');
+    Route::get('/logout',[UserController::class,'logout'])->name('logout');
     
     Route::get('/categories',[CategoryController::class,'list'])->name('category.list');
     Route::get('/category/create',[CategoryController::class,'create'])->name('category.create');
@@ -63,9 +70,13 @@ Route::group(['prefix'=>'Admin','middleware'=>'auth'],function(){
     Route::get('/Asset/add',[FixedassetController::class,'Create'])->name('Asset.create');
     Route::post('/Asset/store',[FixedassetController::class,'Store'])->name('Asset.store');
     
-    Route::get('/Admin',[AdminController::class,'Admin'])->name('Manager.list');
+    /*Route::get('/Admin',[AdminController::class,'Admin'])->name('Manager.list');
     Route::get('/Admin/add',[AdminController::Class,'Create'])->name('Manager.create');
-    Route::post('/Admin/store',[AdminController::Class,'Store'])->name('Admin.store');
+    Route::post('/Admin/store',[AdminController::Class,'Store'])->name('Admin.store');*/
+
+    Route::get('/Supplier',[SupplierController::class,'Supplier'])->name('Supplier.list');
+    Route::get('/Supplier/add',[SupplierController::Class,'Create'])->name('Supplier.create');
+    Route::post('/Supplier/store',[SupplierController::Class,'Store'])->name('Supplier.store');
     
     Route::get('/Purchase',[PurchaseController::class,'Purchase'])->name('Purchase.list');
     Route::get('/Purchase/add',[PurchaseController::Class,'Create'])->name('Purchase.create');

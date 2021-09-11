@@ -33,7 +33,7 @@ class AllocationController extends Controller
            
            'user_id'=>$request->userid,
            'username'=>$request->username,
-           'assets_id'=>$request->assetid,
+           'asset_id'=>$request->assetid,
             'assetname'=>$request->assetname,
             'details'=>$request->status,
             'allocationdate'=>$request->date

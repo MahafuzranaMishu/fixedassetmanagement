@@ -1,6 +1,12 @@
 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
+        <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">
+                    <span data-feather="home"></span>
+                    {{auth()->user()->name}}
+                </a>
+            </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{route('home.start')}}">
               <span data-feather="home"></span>
@@ -8,7 +14,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('User.login')}}">
+            <a class="nav-link" href="{{route('User.list')}}">
               <span data-feather="file"></span>
               User
             </a>
@@ -26,9 +32,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('Manager.list')}}">
+            <a class="nav-link" href="{{route('Admin.list')}}">
               <span data-feather="users"></span>
-              Manager
+              Admin
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('Supplier.list')}}">
+              <span data-feather="layers"></span>
+              Supplier
             </a>
           </li>
           

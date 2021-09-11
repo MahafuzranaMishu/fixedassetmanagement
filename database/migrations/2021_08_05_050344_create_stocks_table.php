@@ -15,7 +15,7 @@ class CreateStocksTable extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('assets_id')->constrained('assets');
+            $table->foreignId('asset_id')->constrained('assets');
             $table->string('assetname',100);
             $table->double('Unit',15);
             $table->timestamps();

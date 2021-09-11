@@ -24,7 +24,7 @@ class StockController extends Controller
        Stock::create([
            
            
-           'assets_id'=>$request->assetid,
+           'asset_id'=>$request->assetid,
             'assetname'=>$request->assetname,
             'unit'=>$request->Unit
 

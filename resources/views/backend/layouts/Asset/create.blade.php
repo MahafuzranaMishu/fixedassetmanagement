@@ -2,7 +2,7 @@
 @section('content')
 <h1>Add new Asset</h1>
 
-<form action="{{route('Asset.store')}}" method="post">
+<form action="{{route('Asset.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
                             <label for="asset_name">Select Category</label>
@@ -26,8 +26,12 @@
             <input name="price" id="name" type="text" class="form-control" placeholder="Enter Asset Price">
         </div>
         <div class="form-group">
-            <label for="ph">Image</label>
-            <textarea class="form-control" name="image" id="ph" type="text" placeholder="Enter Image link "></textarea>
+         <label for="description">Upload Product Image</label>
+         <input type="file" class="form-control" name="image">
+      </div>>
+      <div class="form-group">
+            <label for="name">Enter Asset Unit</label>
+            <input name="unit" id="name" type="text" class="form-control" placeholder="Enter Asset Unit">
         </div>
         <div class="form-group">
             <label for="st">Status</label>

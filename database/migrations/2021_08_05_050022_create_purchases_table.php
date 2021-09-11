@@ -15,7 +15,9 @@ class CreatePurchasesTable extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
-            $table->string('name',100);
+            $table->foreignId('asset_id')->constrained('assets');
+            $table->integer('supplier_id')->nullable();
+            $table->integer('unit');
             $table->string('details',100);
             $table->double('price',10,2)->default(0.00);
             $table->string('image');

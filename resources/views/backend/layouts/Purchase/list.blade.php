@@ -8,7 +8,9 @@
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Name</th>
+      <th scope="col">Asset Name</th>
+      <th scope="col">Supplier Name</th>
+      <th scope="col">Unit</th>
       <th scope="col">Details</th>
       <th scope="col">Price</th>
       <th scope="col">Image</th>
@@ -20,7 +22,9 @@
     @foreach($Purchases as $Purchase)
     <tr>
       <th scope="row">{{$Purchase->id}}</th>
-      <td>{{$Purchase->name}}</td>
+      <td>{{$Purchase->Asset->name}}</td>
+      <td>{{$Purchase->Supplier->name}}</td>
+      <td>{{$Purchase->unit}}</td>
       <td>{{$Purchase->details}}</td>
       <td>{{$Purchase->price}}</td>
       <td>{{$Purchase->image}}</td>

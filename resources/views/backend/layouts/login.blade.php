@@ -30,7 +30,11 @@
 <div class="login100-pic js-tilt" data-tilt>
 <img src="{{url('/image/img-01.webp')}}" alt="IMG">
 </div>
-<form class="login100-form validate-form">
+
+
+
+<form action="{{route('Admin.login.post')}}" method="post" class="login100-form validate-form">
+@csrf
 <span class="login100-form-title">
    Login
 </span>
@@ -42,17 +46,21 @@
 </span>
 </div>
 <div class="wrap-input100 validate-input" data-validate="Password is required">
-<input class="input100" type="password" name="pass" placeholder="Password">
+<input class="input100" type="password" name="password" placeholder="Password">
 <span class="focus-input100"></span>
 <span class="symbol-input100">
 <i class="fa fa-lock" aria-hidden="true"></i>
 </span>
 </div>
-<a href="{{route('User.list')}}" class="container-login100-form-btn">
-    <i class="login100-form-btn">Login</i>
-    </a>
+ <div class="form-group">
+  <input type="submit" value="Login" class="btn float-right login_btn">
+ </div>
 <div class="text-center p-t-12">
 <span class="txt1">
+
+@if(session()->has('message'))
+   <span class="alert alert-danger">{{session()->get('message')}}</span>
+  @endif
 Forgot
 </span>
 <a class="txt2" href="#">

@@ -4,27 +4,33 @@
 
 <a href="{{route('User.create')}}" class="btn btn-info">
     <i class="bi bi-list-nested"></i>
-    Register as User</a>
+    Add User</a>
 
 <table class="table">
     <thead>
     <tr>
         <th scope="col">ID</th>
         <th scope="col">Name</th>
+        <th scope="col">Designation</th>
+        <th scope="col">Type</th>
         <th scope="col">Email</th>
         <th scope="col">Phone Number</th>
+        <th scope="col">Address</th>
     </tr>
     </thead>
     <tbody>
-        @foreach($users as $User)
+        @foreach($user as $key=>$User)
     <tr>
-        <th scope="row">{{$User->id}}</th>
+        <th scope="row">{{$key+1}}</th>
         <td>{{$User->name}}</td>
+        <td>{{$User->designation}}</td>
+        <td>{{$User->role}}</td>
         <td>{{$User->email}}</td>
         <td>{{$User->mobileno}}</td>
+        <td>{{$User->address}}</td>
     </tr>
     @endforeach
     </tbody>
 </table>
-{{$users->links('pagination::bootstrap-4')}}
+
 @endsection
