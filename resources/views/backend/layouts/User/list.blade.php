@@ -6,6 +6,12 @@
     <i class="bi bi-list-nested"></i>
     Add User</a>
 
+    @if(session()->has('message'))
+        <div class="row" style="padding: 10px;">
+            <span class="alert alert-success">{{session()->get('message')}}</span>
+        </div>
+    @endif
+
 <table class="table">
     <thead>
     <tr>
@@ -16,6 +22,7 @@
         <th scope="col">Email</th>
         <th scope="col">Phone Number</th>
         <th scope="col">Address</th>
+        <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
@@ -27,7 +34,15 @@
         <td>{{$User->role}}</td>
         <td>{{$User->email}}</td>
         <td>{{$User->mobileno}}</td>
-        <td>{{$User->address}}</td>
+        <td>{{$User->address}}</td> 
+        
+        <td class="">
+                                         
+        <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('User.delete',$User->id)}}"><i class="material-icons">Delete</i></a>
+        <a href="{{route('User.edit',$User->id)}}"><i class="material-icons">Edit</i></a>
+
+        </td>
+
     </tr>
     @endforeach
     </tbody>

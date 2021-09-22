@@ -74,8 +74,38 @@ class UserController extends Controller
         return view('backend.layouts.user.admin',compact('user'));
     }
 
-    
+    public function delete($id)
+    {
+//        Product::destroy($id);
+        $users=User::find($id);
+        if($users)
+        {
+            $users->delete();
+            return redirect()->back()->with('message','User Deleted successfully.');
+        }
+        return redirect()->back()->with('message','No User found to delete.');
+    }
+
+  public function edit($id)
+  {
+      $users=User::find($id);
+      return view('backend.layouts.user.edit',compact('users'));
+  }  
   
+  public function update(Request $request,$id)
+  {
+      $users=User::find($id);
+      $users->Update([
+        'name'=>$request->user_name,
+        'designation'=>$request->designation,
+        'email'=>$request->email,
+        'password'=>$request->password,
+        'mobileno'=>$request->mobileno,
+        'address'=>$request->Address,
+    ]);
+    return redirect()->route('User.list')->with('message','User Info Updated successfully.');
+  }
+
 }
 
 

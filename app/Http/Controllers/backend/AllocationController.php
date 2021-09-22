@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 use App\Models\Allocation;
 use App\Models\Asset;
 use App\Models\User;
+use App\Models\Stock;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -24,23 +25,52 @@ class AllocationController extends Controller
     public function Store(Request $request)
 
     {
-     
+
+        // dd($request->all());
+        $checkStock =Stock::where('asset_id', $request->assetid)->first();
+
+        if($checkStock)
+        {
+        // dd($request->all());
+            
+            
+        if($checkStock->Unit >= $request->input('unit')){
         
-     
-        //DML-insert into categories (id, name,description) values('ame','description);
-//        left- column name   | right - input field name of form
+        
        Allocation::create([
            
-           'user_id'=>$request->userid,
-           'username'=>$request->username,
-           'asset_id'=>$request->assetid,
-            'assetname'=>$request->assetname,
+            'user_id'=>$request->userid,
+            'asset_id'=>$request->assetid,
             'details'=>$request->status,
+            'unit'=>$request->unit,
             'allocationdate'=>$request->date
 
         ]);
 
+          $checkStock->decrement('unit',$request->input('unit'));
+          return redirect()->back()->with('message','Item distributed Successfully');
+        }
+        else
+        {
+
+            return redirect()->back()->with('message','Item is stock out');
+        }
+        
+    }
+
+    return redirect()->back()->with('message','item not found');
+    
+
+    
+   
+   
+          
+   
+          
+   
+       
+
               
-        return redirect()->route('Allocation.list'); 
+        
     }
 }

@@ -16,9 +16,8 @@ class CreateAllocationsTable extends Migration
         Schema::create('allocations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
-            $table->string('username',100);
             $table->foreignId('asset_id')->constrained('assets');
-            $table->string('assetname',100);
+            $table->integer('unit');
             $table->string('details',100);
             $table->string('allocationdate');
             $table->timestamps();

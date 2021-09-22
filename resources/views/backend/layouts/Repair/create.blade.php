@@ -1,20 +1,29 @@
 @extends('backend.master')
 @section('content')
 <h1>Enter Repair Information</h1>
-
-  
+@if(session()->has('message'))
+    <p class="alert alert-success">{{session()->get('message')}}</p>
+@endif  
 <form action="{{route('Repair.store')}}" method="post">
         @csrf
         <div class="form-group">
-            <label for="p">Enter Asset Id</label>
-            <input name="assetid" id="name" type="text" class="form-control" placeholder="Enter Asset ID">
-        </div>
+                            <label for="Asset_ID">Select Asset ID</label>
+                            <select class="form-control" name="assetid" id="">
+                                @foreach($Assets as $Asset)
+                                <option value="{{$Asset->id}}">{{$Asset->name}}</option>
+                                @endforeach
+                            </select>
+         </div>
+         <div class="form-group">
+                            <label for="Allocation_ID">Select Allocation ID</label>
+                            <select class="form-control" name="allocationid" id="allocationid">
+                                @foreach($Allocations as $Allocation)
+                                <option value="{{$Allocation->id}}">{{$Allocation->id}}</option>
+                                @endforeach
+                            </select>
+         </div>
         <div class="form-group">
-            <label for="ph">Asset Name</label>
-            <textarea class="form-control" name="assetname" id="ph" type="text" placeholder="Enter Asset name "></textarea>
-        </div>
-        <div class="form-group">
-            <label for="st">Details</label>
+            <label for="st">Reason</label>
             <textarea class="form-control" name="details" id="st" type="text" placeholder="Enter Details "></textarea>
         </div>
         <div class="form-group">

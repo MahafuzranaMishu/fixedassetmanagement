@@ -26,12 +26,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*Route::get('/',function (){
-    return view('backend.layouts.home');
-});
-Route::get('/contact',function (){
-    return view('backend.layouts.contact');
-});*/
+
 
 Route::get('/',[FrontendHome::class,'home'])->name('home');
 Route::get('/about',[FrontendHome::class,'about'])->name('about.home');
@@ -39,8 +34,8 @@ Route::get('/about',[FrontendHome::class,'about'])->name('about.home');
 Route::get('/user/signup',[UserloginController::class,'signup'])->name('User.signup');
 Route::get('/user/login',[UserloginController::class,'login'])->name('Users.login');
 Route::post('/user/login/post',[UserloginController::class,'dologin'])->name('Users.do.login');
-
 Route::post('/user/store',[UserloginController::class,'signupstore'])->name('signup.store');
+
 
 Route::get('/Admin/login',[UserController::class,'login'])->name('Admin.login');
 Route::post('/Admin/login/post',[UserController::class,'loginpost'])->name('Admin.login.post');
@@ -54,6 +49,9 @@ Route::group(['prefix'=>'Admin','middleware'=>'auth'],function(){
     Route::get('/contact',[HomeController::Class,'contact']);
     
     Route::get('/User',[UserController::class,'User'])->name('User.list');
+    Route::get('/User/delete/{id}',[UserController::class,'delete'])->name('User.delete');
+    Route::get('/User/edit/{id}',[UserController::class,'edit'])->name('User.edit');
+    Route::put('/User/update/{id}',[UserController::class,'update'])->name('User.update');
     Route::get('/Admin',[UserController::class,'Admin'])->name('Admin.list');
     Route::get('/user/create',[UserController::class,'create'])->name('User.create');
     //Route::get('/user/login',[UserController::class,'login'])->name('User.login');
@@ -62,12 +60,18 @@ Route::group(['prefix'=>'Admin','middleware'=>'auth'],function(){
     
     Route::get('/categories',[CategoryController::class,'list'])->name('category.list');
     Route::get('/category/create',[CategoryController::class,'create'])->name('category.create');
+    Route::get('/category/delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
+    Route::get('/category/edit/{id}',[CategoryController::class,'edit'])->name('category.edit');
+    Route::put('/category/update/{id}',[CategoryController::class,'update'])->name('category.update');
     Route::post('/category/store',[CategoryController::class,'store'])->name('category.store');
     Route::get('/category/{id}/assets',[CategoryController::class,'allasset'])->name('category.asset');
     
     
     Route::get('/Asset',[FixedassetController::class,'Asset'])->name('Asset.list');
     Route::get('/Asset/add',[FixedassetController::class,'Create'])->name('Asset.create');
+    Route::get('/Asset/delete/{id}',[FixedassetController::class,'delete'])->name('Asset.delete');
+    Route::get('/Asset/edit/{id}',[FixedassetController::class,'edit'])->name('Asset.edit');
+    Route::put('/Asset/update/{id}',[FixedassetController::class,'update'])->name('Asset.update');
     Route::post('/Asset/store',[FixedassetController::class,'Store'])->name('Asset.store');
     
     /*Route::get('/Admin',[AdminController::class,'Admin'])->name('Manager.list');

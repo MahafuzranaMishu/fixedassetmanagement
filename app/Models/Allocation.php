@@ -12,10 +12,10 @@ class Allocation extends Model
     use HasFactory;
     public function Asset()
     {
-        return $this->belongsTo(Asset::class,'assets_id','id');
+        return $this->belongsTo(Asset::class,'asset_id','id');
     }
     public function User()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id','id');
     }
 }

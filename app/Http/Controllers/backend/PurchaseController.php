@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\backend;
 use App\Models\Purchase;
+use App\Models\Stock;
 use App\Models\Asset;
 use App\Models\Supplier;
 use App\Http\Controllers\Controller;
@@ -41,14 +42,18 @@ class PurchaseController extends Controller
 
         ]);
               
-        //  $check= Stock::were('asset_id',$request->asset_id)->first;
-        //    if($check)
-        //    {
-               //p
-        //    }else
-        //    {
-               //create
-        //    }
+         $check= Stock::where('asset_id',$request->asset_id)->first();
+         
+           if($check)
+           {
+             $check->increment('unit',$request->Unit);
+           }else
+           {
+            Stock::create([
+                'asset_id'=>$request->asset_id,
+                'unit'=>$request->Unit
+            ]);
+           }
 
 
         return redirect()->route('Purchase.list');  

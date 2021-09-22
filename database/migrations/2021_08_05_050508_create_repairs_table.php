@@ -16,8 +16,8 @@ class CreateRepairsTable extends Migration
         Schema::create('repairs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('asset_id')->constrained('assets');
-            $table->string('assetname',100);
-            $table->string('details',100);
+            $table->integer('allocation_id');
+            $table->string('reason',100);
             $table->string('repaircompanyname',100);
             $table->string('deliverydate');
             $table->timestamps();

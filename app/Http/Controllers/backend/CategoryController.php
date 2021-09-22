@@ -38,4 +38,30 @@ class CategoryController extends Controller
         $assets=Asset::where('category_id',$id)->get();
         return view('backend.layouts.category.assetlist',compact('assets'));
     }
+    public function delete($id)
+    {
+//        Product::destroy($id);
+        $categories=Category::find($id);
+        if($categories)
+        {
+            $categories->delete();
+            return redirect()->back()->with('message','User Deleted successfully.');
+        }
+        return redirect()->back()->with('message','No User found to delete.');
+    }
+
+    public function edit($id)
+    {
+        $category=Category::find($id);
+        return view('backend.layouts.category.edit',compact('category'));
+    }  
+    public function update(Request $request,$id)
+    {
+        $category=Category::find($id);
+        $category->Update([
+            'name'=>$request->category_name,
+            'details'=>$request->description,
+      ]);
+      return redirect()->route('category.list')->with('message','Category Info Updated successfully.');
+    }
 }

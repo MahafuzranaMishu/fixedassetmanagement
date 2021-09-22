@@ -1,7 +1,9 @@
 @extends('backend.master')
 @section('content')
 <h1>Enter Allocation Information</h1>
-
+@if(session()->has('message'))
+    <p class="alert alert-success">{{session()->get('message')}}</p>
+@endif
 <form action="{{route('Allocation.Store')}}" method="post">
         @csrf
         
@@ -14,14 +16,7 @@
                             </select>
          </div>
 
-         <div class="form-group">
-                            <label for="User_ID">Select User name</label>
-                            <select class="form-control" name="username" id="">
-                                @foreach($Users as $user)
-                                <option value="{{$user->name}}">{{$user->id}}</option>
-                                @endforeach
-                            </select>
-         </div>
+         
        
         <div class="form-group">
                             <label for="Asset_ID">Select Asset ID</label>
@@ -32,13 +27,9 @@
                             </select>
          </div>
          <div class="form-group">
-                            <label for="Asset_name">Select Asset Name</label>
-                            <select class="form-control" name="assetname" id="">
-                                @foreach($Assets as $Asset)
-                                <option value="{{$Asset->name}}">{{$Asset->name}}</option>
-                                @endforeach
-                            </select>
-         </div>
+            <label for="st">Unit</label>
+            <textarea class="form-control" name="unit" id="st" type="text" placeholder="Enter unit "></textarea>
+        </div>
         
         <div class="form-group">
             <label for="st">Details</label>

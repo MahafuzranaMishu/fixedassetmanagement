@@ -6,6 +6,12 @@
     <i class="bi bi-list-nested"></i>
     Create New Category</a>
 
+    @if(session()->has('message'))
+        <div class="row" style="padding: 10px;">
+            <span class="alert alert-success">{{session()->get('message')}}</span>
+        </div>
+    @endif
+
 <table class="table">
     <thead>
     <tr>
@@ -25,6 +31,8 @@
         <td>{{$category->status}}</td>
         <td>
             <a href="{{route('category.asset',$category->id)}}" class="btn btn-primary">view</a>
+            <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('category.delete',$category->id)}}"><i class="material-icons">Delete</i></a>
+        <a href="{{route('category.edit',$category->id)}}"><i class="material-icons">Edit</i></a>
         </td>
     </tr>
 @endforeach

@@ -9,7 +9,8 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Asset ID</th>
-      <th scope="col">Details</th>
+      <th scope="col">Allocation ID</th>
+      <th scope="col">Reason</th>
       <th scope="col">Repair Company Name</th>
       <th scope="col">Delivery date</th>
     </tr>
@@ -19,7 +20,8 @@
     <tr>
       <th scope="row">{{$Repair->id}}</th>
       <td>{{$Repair->Asset->name}}</td>
-      <td>{{$Repair->details}}</td>
+      <td>{{$Repair->allocation_id}}</td>
+      <td>{{$Repair->reason}}</td>
       <td>{{$Repair->repaircompanyname}}</td>
       <td>{{$Repair->deliverydate}}
     </tr>
