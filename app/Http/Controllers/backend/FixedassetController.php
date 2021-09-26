@@ -23,7 +23,7 @@ class FixedassetController extends Controller
     {
        // dd($request->all());
        //DML-insert into categories (id, name,description) values('ame','description);
-//        left- column name   | right - input field name of form
+     //        left- column name   | right - input field name of form
 
    $fileName='';
    if($request->hasFile('image'))
@@ -63,14 +63,14 @@ class FixedassetController extends Controller
     public function edit($id)
     {
         $Assets=Asset::find($id);
-//        dd($product);
+ //        dd($product);
         $categories=Category::all();
         return view('backend.layouts.asset.edit',compact('categories','Assets'));
     }
 
     public function update(Request $request,$id)
     {
-//        dd($request->all());
+ //        dd($request->all());
         $Assets=Asset::find($id);
         $Assets->update([
             'name'=>$request->asset_name,

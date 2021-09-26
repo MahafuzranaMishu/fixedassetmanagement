@@ -1,7 +1,9 @@
 @extends('backend.master')
 @section('content')
 <h1>Purchase List</h1>
-
+@if(session()->has('message'))
+    <p class="alert alert-success">{{session()->get('message')}}</p>
+@endif
 
 <a class="btn btn-primary" href="{{route('Purchase.create')}}" role="button">Enter Purchase Info</a>
 <table class="table table-bordered">
@@ -16,6 +18,7 @@
       <th scope="col">Image</th>
       <th scope="col">Status</th>
       <th scope="col">Buyingdate</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -30,6 +33,10 @@
       <td>{{$Purchase->image}}</td>
       <td>{{$Purchase->status}}</td>
       <td>{{$Purchase->buyingdate}}</td>
+      <td class="">                                
+        <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('Purchase.Delete',$Purchase->id)}}"><i class="material-icons">Delete</i></a>
+                                                                
+        </td>
     </tr>
 @endforeach
   </tbody>

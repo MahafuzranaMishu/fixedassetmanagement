@@ -1,6 +1,9 @@
 @extends('backend.master')
 @section('content')
 <h1>Category List</h1>
+@if(session()->has('message'))
+    <p class="alert alert-success">{{session()->get('message')}}</p>
+@endif
 
 <a href="{{route('category.create')}}" class="btn btn-info">
     <i class="bi bi-list-nested"></i>

@@ -1,7 +1,9 @@
 @extends('backend.master')
 @section('content')
 <h1>Repair List</h1>
-
+@if(session()->has('message'))
+    <p class="alert alert-success">{{session()->get('message')}}</p>
+@endif
 
 <a class="btn btn-primary" href="{{route('Repair.create')}}" role="button">Enter Repair Info</a>
 <table class="table table-bordered">
@@ -13,6 +15,7 @@
       <th scope="col">Reason</th>
       <th scope="col">Repair Company Name</th>
       <th scope="col">Delivery date</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -24,6 +27,10 @@
       <td>{{$Repair->reason}}</td>
       <td>{{$Repair->repaircompanyname}}</td>
       <td>{{$Repair->deliverydate}}
+      <td class="">                                
+        <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('Repair.delete',$Repair->id)}}"><i class="material-icons">Delete</i></a>
+         <a href="{{route('Repair.edit',$Repair->id)}}"><i class="material-icons">Edit</i></a>                                                       
+        </td>
     </tr>
     @endforeach
 </tbody>

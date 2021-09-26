@@ -80,23 +80,38 @@ Route::group(['prefix'=>'Admin','middleware'=>'auth'],function(){
 
     Route::get('/Supplier',[SupplierController::class,'Supplier'])->name('Supplier.list');
     Route::get('/Supplier/add',[SupplierController::Class,'Create'])->name('Supplier.create');
+    Route::get('/Supplier/delete/{id}',[SupplierController::Class,'delete'])->name('Supplier.delete');
+    Route::get('/Supplier/edit/{id}',[SupplierController::Class,'edit'])->name('Supplier.edit');
+    Route::put('/Supplier/update/{id}',[SupplierController::Class,'update'])->name('Supplier.update');
     Route::post('/Supplier/store',[SupplierController::Class,'Store'])->name('Supplier.store');
     
     Route::get('/Purchase',[PurchaseController::class,'Purchase'])->name('Purchase.list');
     Route::get('/Purchase/add',[PurchaseController::Class,'Create'])->name('Purchase.create');
+    Route::get('/Purchase/delet/{id}',[PurchaseController::Class,'delete'])->name('Purchase.Delete');
+    Route::get('/Purchase/edit/{id}',[PurchaseController::Class,'edit'])->name('Purchase.edit');
+    Route::put('/Purchase/update/{id}',[PurchaseController::Class,'update'])->name('Purchase.update');
     Route::post('/Purchase/store',[PurchaseController::Class,'Store'])->name('Purchase.store');
     
     Route::get('/Allocation/create',[AllocationController::class,'Allocation'])->name('Allocation.list');
     Route::get('/Allocation',[AllocationController::Class,'Create'])->name('Allocation.create');
+    Route::get('/Allocation/edit/{id}',[AllocationController::Class,'edit'])->name('Allocation.edit');
+    Route::put('/Allocation/update/{id}',[AllocationController::Class,'update'])->name('Allocation.update');
+    Route::get('/Allocation/update/{id}',[AllocationController::Class,'delete'])->name('Allocation.delete');
     Route::post('/Allocation/Store',[AllocationController::Class,'Store'])->name('Allocation.Store');
     
     Route::get('/Stock/create',[StockController::class,'create'])->name('Stock.Create');
     Route::get('/stock/list',[StockController::class,'Stock'])->name('Stock.list');
+    Route::get('/stock/delete/{id}',[StockController::class,'delete'])->name('Stock.delete');
+    Route::get('/stock/edit/{id}',[StockController::class,'edit'])->name('Stock.edit');
+    Route::Put('/stock/update/{id}',[StockController::class,'update'])->name('Stock.update');
     Route::post('/Stock/store',[StockController::class,'Store'])->name('stock.store');
     
     
     Route::get('/Repair/create',[RepairController::class,'Create'])->name('Repair.create');
     Route::get('/Repair/add',[RepairController::class,'Repair'])->name('Repair.list');
+    Route::get('/Repair/delete/{id}',[RepairController::class,'delete'])->name('Repair.delete');
+    Route::get('/Repair/edit/{id}',[RepairController::class,'edit'])->name('Repair.edit');
+    Route::put('/Repair/update/{id}',[RepairController::class,'update'])->name('Repair.update');
     Route::post('/Repair/post',[RepairController::class,'Store'])->name('Repair.store');
 
 

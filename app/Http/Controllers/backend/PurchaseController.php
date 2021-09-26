@@ -58,4 +58,41 @@ class PurchaseController extends Controller
 
         return redirect()->route('Purchase.list');  
     }
+
+    public function delete($id)
+    {
+
+        $purchases=Purchase::find($id);
+        if($purchases)
+        {
+            $purchases->delete();
+            return redirect()->back()->with('message','Purchase info Deleted successfully.');
+        }
+        return redirect()->route('Asset.list')->with('message','No Purchase found to delete.');
+    }
+     
+    public function edit($id)
+    {
+        $purchases=Purchase::find($id);
+        $Assets=Asset::all();
+        $suppliers=Supplier::All();
+ //        dd($product);
+        
+        return view('backend.layouts.purchase.edit',compact('purchases','Assets','suppliers'));
+    }
+
+    public function update(Request $request,$id)
+    {
+ //        dd($request->all());
+        $purchases=Purchase::find($id);
+        $purchases->update([
+            'asset_id'=>$request->asset_id,
+            'supplier_id'=>$request->supplier_id,
+            'unit'=>$request->Unit,
+            'details'=>$request->Details,
+            'price'=>$request->price
+        ]);
+
+        return redirect()->route('Supplier.list')->with('message','Supplier info updated successfully.');
+    }
 }

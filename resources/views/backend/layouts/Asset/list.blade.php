@@ -3,10 +3,8 @@
 <h1>Fixed Asset List</h1>
 
 @if(session()->has('message'))
-        <div class="row" style="padding: 10px;">
-            <span class="alert alert-success">{{session()->get('message')}}</span>
-        </div>
-    @endif
+    <p class="alert alert-success">{{session()->get('message')}}</p>
+@endif
 <a class="btn btn-primary" href="{{route('Asset.create')}}" role="button">Create New Asset</a>
 <table class="table table-bordered">
   <thead>
@@ -39,7 +37,7 @@
       <td>{{$Asset->buyingdate}}</td>
       <td class="">
                                          
-       <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('Asset.delete',$Asset->id)}}"><i class="material-icons">Delete</i></a>
+      <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('Asset.delete',$Asset->id)}}"><i class="material-icons">Delete</i></a>
       <a href="{{route('Asset.edit',$Asset->id)}}"><i class="material-icons">Edit</i></a>
                                  
       </td>

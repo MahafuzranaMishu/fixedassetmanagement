@@ -19,7 +19,7 @@
          </div>
         <div class="form-group">
             <label for="name">Enter Asset Name</label>
-            <input value="{{$Assets->name}}" name="asset_name" id="name" type="text" class="form-control" placeholder="Enter Category Name">
+            <input   name="asset_name" id="name" type="text" class="form-control" placeholder="Enter Category Name">
         </div>
 
         <div class="form-group">

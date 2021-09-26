@@ -16,6 +16,7 @@
       <!-- <th scope="col">Asset Name</th> -->
       <th scope="col">Details</th>
       <th scope="col">Allocation date</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -28,6 +29,12 @@
       <!-- <td>{{$Allocation->assetname}}</td> -->
       <td>{{$Allocation->details}}</td>
       <td>{{$Allocation->allocationdate}}</td>
+      <td class="">
+                                         
+         <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('Allocation.delete',$Allocation->id)}}"><i class="material-icons">Delete</i></a>
+         <a href="{{route('Allocation.edit',$Allocation->id)}}"><i class="material-icons">Edit</i></a>
+                                                                    
+      </td>
     </tr>
     @endforeach
   </tbody>
