@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers\backend;
 use App\Models\User;
+use App\Models\Stock;
+use App\Models\Asset;
+use App\Models\AssetRequest;
+use App\Models\Allocation;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +20,7 @@ class UserController extends Controller
             'name'=>$request->user_name,
             'designation'=>$request->designation,
             'email'=>$request->email,
-            'password'=>$request->password,
+            'password'=>bcrypt($request->password),
             'mobileno'=>$request->mobileno,
             'address'=>$request->Address,
         ]);
@@ -36,7 +40,7 @@ class UserController extends Controller
 
         if(Auth::attempt($credentials))
         {
-            if(auth()->user()->role=='admin')
+            if(auth()->user()->role=='admin'|| auth()->user()->role=='user' )
            {
             return redirect()->route('home.start');
            }else
@@ -105,6 +109,60 @@ class UserController extends Controller
     ]);
     return redirect()->route('User.list')->with('message','User Info Updated successfully.');
   }
+  public function allasset()
+  {
+       $assets=Allocation::where('user_id',auth()->user()->id)->get();
+      return view('backend.layouts.User.userasset',compact('assets'));
+  }
+
+    public function reqasset()
+    {
+      $Assets=Asset::all();
+      $Users=User::all();
+      return view('backend.layouts.User.assetrequest',compact('Assets','Users'));
+    }
+
+    public function requestasset(Request $request)
+    {
+
+        // dd($request->all());
+        $checkStock =Stock::where('asset_id', $request->assetid)->first();
+
+        if($checkStock)
+        {
+        // dd($request->all());
+            
+            
+        if($checkStock->Unit >= $request->input('unit')){
+        
+        
+       AssetRequest::create([
+           
+            'user_id'=>auth()->user()->id,
+            'asset_id'=>$request->assetid,
+            'unit'=>$request->unit,
+            
+            
+            
+
+        ]);
+
+         
+          return redirect()->back()->with('message','Requested Successfully');
+        }
+        else
+        {
+
+            return redirect()->back()->with('message','Asset is stock out');
+        }
+        
+    }
+
+    return redirect()->back()->with('message','item not found');    
+        
+    }
+
+      
 
 }
 

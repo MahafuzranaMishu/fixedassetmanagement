@@ -19,7 +19,7 @@ class HomeController extends Controller
 
         $asset=Asset::count();
         $purchase=Purchase::count();
-        $stocks=Stock::count();
+        $stocks=Stock::sum('unit');
         $repairs=Repair::count();
         $allocation=Allocation::count();
         $user=User::count();

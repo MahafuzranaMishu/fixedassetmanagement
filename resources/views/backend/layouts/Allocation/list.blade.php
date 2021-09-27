@@ -6,6 +6,7 @@
 @endif
 
 <a class="btn btn-primary" href="{{route('Allocation.create')}}" role="button"> Add New Allocationt</a>
+<a class="btn btn-Secondary" href="{{route('Allocation.request')}}" role="button"> View Asset Request</a>
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -31,8 +32,8 @@
       <td>{{$Allocation->allocationdate}}</td>
       <td class="">
                                          
-         <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('Allocation.delete',$Allocation->id)}}"><i class="material-icons">Delete</i></a>
-         <a href="{{route('Allocation.edit',$Allocation->id)}}"><i class="material-icons">Edit</i></a>
+         <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('Allocation.delete',$Allocation->id)}}" class="btn btn-danger"><i class="material-icons">Delete</i></a>
+         <a href="{{route('Allocation.edit',$Allocation->id)}}"  class="btn btn-info"><i class="material-icons">Edit</i></a>
                                                                     
       </td>
     </tr>

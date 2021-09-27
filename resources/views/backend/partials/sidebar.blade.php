@@ -1,4 +1,5 @@
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-white sidebar collapse">
+  <div>
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
         <li class="nav-item">
@@ -13,16 +14,17 @@
               Dashboard
             </a>
           </li>
+          @if(auth()->user()->role=='admin')
           <li class="nav-item">
             <a class="nav-link" href="{{route('User.list')}}">
               <span data-feather="file"></span>
               User
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item ">
             <a class="nav-link" href="{{route('category.list')}}">
-              <span data-feather="shopping-cart"></span>
-              FixedAssets Category
+              <span data-feather="file" ></span>
+              <span class="text-danger">FixedAssets Category </span>
             </a>
           </li>
           <li class="nav-item">
@@ -50,8 +52,9 @@
               Purchase
             </a>
           </li>
-        </ul>
 
+          
+        </ul>
         
         </h6>
         <ul class="nav flex-column mb-2">
@@ -79,7 +82,23 @@
               Report
             </a>
           </li>
+          @else
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('user.asset')}}">
+              <span data-feather="file-text"></span>
+              My Asset
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('Repair.list')}}">
+              <span data-feather="file-text"></span>
+              Repair
+            </a>
+          </li>
+
+          @endif
 
         </ul>
       </div>
+</div>
     </nav>

@@ -31,14 +31,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[FrontendHome::class,'home'])->name('home');
 Route::get('/about',[FrontendHome::class,'about'])->name('about.home');
 
-Route::get('/user/signup',[UserloginController::class,'signup'])->name('User.signup');
-Route::get('/user/login',[UserloginController::class,'login'])->name('Users.login');
-Route::post('/user/login/post',[UserloginController::class,'dologin'])->name('Users.do.login');
-Route::post('/user/store',[UserloginController::class,'signupstore'])->name('signup.store');
+
+
+//Route::post('/user/login/post',[UserloginController::class,'dologin'])->name('Users.do.login');
+//Route::get('/user/home',[UserloginController::class,'home'])->name('User.home');
+
 
 
 Route::get('/Admin/login',[UserController::class,'login'])->name('Admin.login');
 Route::post('/Admin/login/post',[UserController::class,'loginpost'])->name('Admin.login.post');
+
 
 Route::group(['prefix'=>'Admin','middleware'=>'auth'],function(){
 
@@ -52,6 +54,10 @@ Route::group(['prefix'=>'Admin','middleware'=>'auth'],function(){
     Route::get('/User/delete/{id}',[UserController::class,'delete'])->name('User.delete');
     Route::get('/User/edit/{id}',[UserController::class,'edit'])->name('User.edit');
     Route::put('/User/update/{id}',[UserController::class,'update'])->name('User.update');
+    Route::get('/user/assets',[UserController::class,'allasset'])->name('user.asset');
+    Route::get('/user/requestassets',[UserController::class,'reqasset'])->name('user.request');
+    Route::post('/user/request',[UserController::class,'requestasset'])->name('user.request.asset');
+
     Route::get('/Admin',[UserController::class,'Admin'])->name('Admin.list');
     Route::get('/user/create',[UserController::class,'create'])->name('User.create');
     //Route::get('/user/login',[UserController::class,'login'])->name('User.login');
@@ -98,6 +104,10 @@ Route::group(['prefix'=>'Admin','middleware'=>'auth'],function(){
     Route::put('/Allocation/update/{id}',[AllocationController::Class,'update'])->name('Allocation.update');
     Route::get('/Allocation/update/{id}',[AllocationController::Class,'delete'])->name('Allocation.delete');
     Route::post('/Allocation/Store',[AllocationController::Class,'Store'])->name('Allocation.Store');
+    Route::get('/Allocation/request',[AllocationController::Class,'request'])->name('Allocation.request');
+    Route::get('/Allocation/approve/{id}/{status}',[AllocationController::Class,'approve'])->name('Allocation.approve');
+
+
     
     Route::get('/Stock/create',[StockController::class,'create'])->name('Stock.Create');
     Route::get('/stock/list',[StockController::class,'Stock'])->name('Stock.list');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 use App\Models\Allocation;
 use App\Models\Asset;
+use App\Models\AssetRequest;
 use App\Models\User;
 use App\Models\Stock;
 use App\Http\Controllers\Controller;
@@ -23,7 +24,6 @@ class AllocationController extends Controller
         return view('backend.layouts.Allocation.list',compact('Allocations'));
     }
     public function Store(Request $request)
-
     {
 
         // dd($request->all());
@@ -48,7 +48,7 @@ class AllocationController extends Controller
         ]);
 
           $checkStock->decrement('unit',$request->input('unit'));
-          return redirect()->back()->with('message','Item distributed Successfully');
+          return redirect()->back()->with('message','Allocated Successfully');
         }
         else
         {
@@ -58,8 +58,7 @@ class AllocationController extends Controller
         
     }
 
-    return redirect()->back()->with('message','item not found');
-          
+    return redirect()->back()->with('message','item not found');    
         
     }
     public function delete($id)
@@ -94,5 +93,29 @@ class AllocationController extends Controller
 
         return redirect()->route('Allocation.list')->with('message','Allocation info updated successfully.');
     }
+
+    Public function request()
+    {
+        $Allocationreq=AssetRequest::with('Asset','User')->paginate(1);
+      
+        return view('backend.layouts.Allocation.request',compact('Allocationreq'));
+    }
+     
+    public function approve($id,$status)
+     {
+        $Allocationreq=AssetRequest::find($id);
+       if($status=='approved')
+       {
+        $Allocationreq->update([
+               'status' => $status
+           ]);
+       }else{
+        $Allocationreq->update([
+            'status' => $status
+        ]);
+       }
+
+     return redirect()->back()->with('message','Asset approved sucessfully'); 
+     }
 
 }
