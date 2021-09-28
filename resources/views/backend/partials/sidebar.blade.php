@@ -10,8 +10,9 @@
             </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{route('home.start')}}">
-              <span data-feather="home"></span>
-              Dashboard
+               <span data-feather="home"></span>
+
+                   Dashboard
             </a>
           </li>
           @if(auth()->user()->role=='admin')
@@ -24,7 +25,7 @@
           <li class="nav-item ">
             <a class="nav-link" href="{{route('category.list')}}">
               <span data-feather="file" ></span>
-              <span class="text-danger">FixedAssets Category </span>
+              FixedAssets Category 
             </a>
           </li>
           <li class="nav-item">
@@ -89,13 +90,6 @@
               My Asset
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('Repair.list')}}">
-              <span data-feather="file-text"></span>
-              Repair
-            </a>
-          </li>
-
           @endif
 
         </ul>

@@ -115,6 +115,12 @@ class UserController extends Controller
       return view('backend.layouts.User.userasset',compact('assets'));
   }
 
+  public function userasset($id)
+  {
+      $assets=Allocation::where('user_id',$id)->get();
+      return view('backend.layouts.user.userallocationasset',compact('assets'));
+  }
+
     public function reqasset()
     {
       $Assets=Asset::all();

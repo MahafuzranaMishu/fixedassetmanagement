@@ -37,7 +37,7 @@
         <td>{{$User->address}}</td> 
         
         <td class="">
-                                         
+        <a href="{{route('own.asset',$User->id)}}" class="btn btn-primary">view</a>                               
         <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('User.delete',$User->id)}}"><i class="material-icons">Delete</i></a>
         <a href="{{route('User.edit',$User->id)}}"><i class="material-icons">Edit</i></a>
 

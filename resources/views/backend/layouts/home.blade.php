@@ -16,15 +16,13 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
-                        <div class="card">
+                        <div class="card bg-primary">
                             <div class="stat-widget-two card-body">
                                 <div class="stat-content">
                                     <div class="stat-text">Total Asset</div>
                                     <div class="stat-digit"> <i class="fa fa-usd"></i>{{$asset}}</div>
                                 </div>
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-primary w-75" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>

@@ -57,6 +57,8 @@ Route::group(['prefix'=>'Admin','middleware'=>'auth'],function(){
     Route::get('/user/assets',[UserController::class,'allasset'])->name('user.asset');
     Route::get('/user/requestassets',[UserController::class,'reqasset'])->name('user.request');
     Route::post('/user/request',[UserController::class,'requestasset'])->name('user.request.asset');
+    Route::get('/user/{id}/assets',[UserController::class,'userasset'])->name('own.asset');
+    Route::get('/user/{id}/assets',[UserController::class,'userasset'])->name('own.asset');
 
     Route::get('/Admin',[UserController::class,'Admin'])->name('Admin.list');
     Route::get('/user/create',[UserController::class,'create'])->name('User.create');
