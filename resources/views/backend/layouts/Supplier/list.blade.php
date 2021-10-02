@@ -31,8 +31,8 @@
         <td>{{$data->mobileno}}</td>
         <td>{{$data->address}}</td>
         <td class="">                                
-        <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('Supplier.delete',$data->id)}}"><i class="material-icons">Delete</i></a>
-        <a href="{{route('Supplier.edit',$data->id)}}"><i class="material-icons">Edit</i></a>                                                          
+        <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('Supplier.delete',$data->id)}}"class="btn btn-danger"><i class="material-icons">Delete</i></a>
+        <a href="{{route('Supplier.edit',$data->id)}}" class="btn btn-warning"><i class="material-icons">Edit</i></a>                                                          
         </td>
     </tr>
     @endforeach

@@ -1,7 +1,7 @@
 @extends('backend.master')
 @section('content')
     
-    <P>Employes Assets Report</p>
+   
     
  <div id="printableArea">
      <P>Employes Assets Report</p>

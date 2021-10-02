@@ -14,7 +14,7 @@
          </div>
         <div class="form-group">
             <label for="name">Enter Asset Name</label>
-            <input name="asset_name" id="name" type="text" class="form-control" placeholder="Enter Category Name">
+            <input name="asset_name" id="name" type="text" class="form-control" placeholder="Enter Asset Name">
         </div>
 
         <div class="form-group">
@@ -39,7 +39,7 @@
         </div>
         <div class="form-group">
             <label for="Dt">Date</label>
-            <textarea class="form-control" name="date" id="dt" type="text" placeholder="Enter Image link "></textarea>
+            <input class="form-control" name="date" id="dt" type="date" placeholder="Enter Image link "></input>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

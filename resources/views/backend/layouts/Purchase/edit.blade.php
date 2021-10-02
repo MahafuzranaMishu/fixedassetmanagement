@@ -50,7 +50,7 @@
         </div>
         <div class="form-group">
             <label for="Dt">Date</label>
-            <input value="{{$purchases->buyingdate}}" class="form-control" name="date" id="dt" type="text" placeholder="Enter Image link "></input>
+            <input value="{{$purchases->buyingdate}}" class="form-control" name="date" id="dt" type="date" placeholder="Enter Image link "></input>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

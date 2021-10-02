@@ -7,7 +7,9 @@
 
 <a class="btn btn-primary" href="{{route('Allocation.create')}}" role="button"> Add New Allocationt</a>
 <a class="btn btn-Secondary" href="{{route('Allocation.request')}}" role="button"> View Asset Request</a>
-<table class="table table-bordered">
+ <div id="printableArea">  
+  <table class="table table-bordered">
+ 
   <thead>
     <tr>
       <th scope="col">ID</th>
@@ -30,6 +32,7 @@
       <!-- <td>{{$Allocation->assetname}}</td> -->
       <td>{{$Allocation->details}}</td>
       <td>{{$Allocation->allocationdate}}</td>
+ </div>
       <td class="">
                                          
          <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('Allocation.delete',$Allocation->id)}}" class="btn btn-danger"><i class="material-icons">Delete</i></a>
@@ -37,8 +40,31 @@
                                                                     
       </td>
     </tr>
+  </div>
+
     @endforeach
   </tbody>
-</table>
+ </table>
+
+
+   <div>
+     <button class="btn btn-success" onclick="printDiv('printableArea')">
+     <i class="bi bi-printer"></i> Print Report
+     </button>
+  </div>
+ <script type="text/javascript">
+        function printDiv(divName) {
+            var printContents = document.getElementById(divName).innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }
+    </script>
+ 
+</div>
 {{$Allocations->links('pagination::bootstrap-4')}}
 @endsection

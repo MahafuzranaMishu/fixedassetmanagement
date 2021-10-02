@@ -44,7 +44,7 @@
         </div>
         <div class="form-group">
             <label for="Dt">Date</label>
-            <input value="{{$Allocations->allocationdate}}" class="form-control" name="date" id="dt" type="text" placeholder="Enter Allocation Date "></input>
+            <input value="{{$Allocations->allocationdate}}" class="form-control" name="date" id="dt" type="date" placeholder="Enter Allocation Date "></input>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

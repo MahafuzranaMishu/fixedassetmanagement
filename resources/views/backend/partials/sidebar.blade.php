@@ -52,9 +52,7 @@
               <span data-feather="layers"></span>
               Purchase
             </a>
-          </li>
-
-          
+          </li> 
         </ul>
         
         </h6>
@@ -77,12 +75,7 @@
               Repair
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('Repair.list')}}">
-              <span data-feather="file-text"></span>
-              Report
-            </a>
-          </li>
+          
           @else
           <li class="nav-item">
             <a class="nav-link" href="{{route('user.asset')}}">

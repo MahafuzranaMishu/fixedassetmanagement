@@ -37,8 +37,8 @@
       <td>{{$Asset->buyingdate}}</td>
       <td class="">
                                          
-      <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('Asset.delete',$Asset->id)}}"><i class="material-icons">Delete</i></a>
-      <a href="{{route('Asset.edit',$Asset->id)}}"><i class="material-icons">Edit</i></a>
+      <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('Asset.delete',$Asset->id)}}"class="btn btn-danger" ><i class="material-icons">Delete</i></a>
+      <a href="{{route('Asset.edit',$Asset->id)}}" class="btn btn-warning"><i class="material-icons">Edit</i></a>
                                  
       </td>
     </tr>

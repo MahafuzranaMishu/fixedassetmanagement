@@ -23,7 +23,7 @@
         
          <div class="form-group">
             <label for="E">Units</label>
-            <textarea class="form-control" name="Unit" id="E" type="text" placeholder="Enter Details"></textarea>
+            <textarea class="form-control" name="Unit" id="E" type="text" placeholder="Enter Unit"></textarea>
         </div>
 
         <div class="form-group">
@@ -36,15 +36,15 @@
         </div>
         <div class="form-group">
             <label for="ph">Image</label>
-            <textarea class="form-control" name="image" id="ph" type="text" placeholder="Enter Image link "></textarea>
+            <textarea class="form-control" name="image" id="ph" type="text" placeholder="Enter Image "></textarea>
         </div>
         <div class="form-group">
             <label for="st">Status</label>
-            <textarea class="form-control" name="status" id="st" type="text" placeholder="Enter Status "></textarea>
+            <input class="form-control" name="status" id="st" type="text" placeholder="Enter Status "></input>
         </div>
         <div class="form-group">
             <label for="Dt">Date</label>
-            <textarea class="form-control" name="date" id="dt" type="text" placeholder="Enter Image link "></textarea>
+            <input class="form-control" name="date" id="dt" type="text" placeholder="Enter Date "></input>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

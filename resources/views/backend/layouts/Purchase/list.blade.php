@@ -34,7 +34,7 @@
       <td>{{$Purchase->status}}</td>
       <td>{{$Purchase->buyingdate}}</td>
       <td class="">                                
-        <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('Purchase.Delete',$Purchase->id)}}"><i class="material-icons">Delete</i></a>
+        <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('Purchase.Delete',$Purchase->id)}}" class="btn btn-danger"><i class="material-icons">Delete</i></a>
                                                                 
         </td>
     </tr>
