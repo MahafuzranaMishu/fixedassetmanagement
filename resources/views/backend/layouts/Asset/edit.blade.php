@@ -30,18 +30,7 @@
             <label for="p">Enter Price</label>
             <input value="{{$Assets->price}}" name="price" id="name" type="text" class="form-control" placeholder="Enter Asset Price">
         </div>
-        <div class="form-group">
-         <label for="description">Upload Product Image</label>
-         <input type="file" class="form-control" name="image">
-      </div>>
-      <div class="form-group">
-            <label for="name">Enter Asset Unit</label>
-            <input value="{{$Assets->unit}}" name="unit" id="name" type="text" class="form-control" placeholder="Enter Asset Unit">
-        </div>
-        <div class="form-group">
-            <label for="st">Status</label>
-            <input value="{{$Assets->status}}" class="form-control" name="status" id="st" type="text" placeholder="Enter Status "></input>
-        </div>
+      
         <div class="form-group">
             <label for="Dt">Date</label>
             <input value="{{$Assets->buyingdate}}" class="form-control" name="date" id="dt" type="date" placeholder="Enter Buying date "></input>

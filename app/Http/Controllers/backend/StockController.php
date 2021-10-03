@@ -15,7 +15,7 @@ class StockController extends Controller
     }
     public function Stock()
     {   
-        $Stocks=Stock::with('Asset')->paginate(1);
+        $Stocks=Stock::with('Asset')->paginate(5);
         return view('backend.layouts.Stock.list',compact('Stocks'));
     }
     public function Store(Request $request)

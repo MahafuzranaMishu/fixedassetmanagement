@@ -18,14 +18,14 @@ class RepairController extends Controller
     }
     public function Repair()
     {
-        $Repairs=Repair::with('Asset','Allocation')->paginate(1);
+        $Repairs=Repair::with('Asset','Allocation')->paginate(5);
         return view('backend.layouts.Repair.list',compact('Repairs'));
     }
     public function Store(Request $request)
 
     {
         
-        $allocation =Allocation::findOrFail($request->allocationid);
+        $allocation =Allocation::all();
         
         //DML-insert into categories (id, name,description) values('ame','description);
 //        left- column name   | right - input field name of form

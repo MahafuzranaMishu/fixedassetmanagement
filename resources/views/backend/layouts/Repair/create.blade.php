@@ -24,15 +24,15 @@
          </div>
         <div class="form-group">
             <label for="st">Reason</label>
-            <textarea class="form-control" name="details" id="st" type="text" placeholder="Enter Details "></textarea>
+            <textarea class="form-control" name="details" id="st" type="text" required placeholder="Enter Details "></textarea>
         </div>
         <div class="form-group">
             <label for="ph">Repair Company Name</label>
-            <textarea class="form-control" name="Companyname" id="ph" type="text" placeholder="Enter Asset name "></textarea>
+            <input class="form-control" name="Companyname" id="ph" type="text" required placeholder="Enter Asset name "></input>
         </div>
         <div class="form-group">
             <label for="Dt">Delivery Date</label>
-            <textarea class="form-control" name="date" id="dt" type="text" placeholder="Enter Delivery Date "></textarea>
+            <input class="form-control" name="date" id="dt" type="date" required placeholder="Enter Delivery Date "></input>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

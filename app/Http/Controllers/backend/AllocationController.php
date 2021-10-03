@@ -19,9 +19,15 @@ class AllocationController extends Controller
     }
     Public function Allocation()
     {
-        $Allocations=Allocation::with('Asset','User')->paginate(1);
+        $Allocations=Allocation::with('Asset','User')->paginate(5);
       
         return view('backend.layouts.Allocation.list',compact('Allocations'));
+    }
+    Public function report()
+    {
+        $Allocations=Allocation::with('Asset','User')->paginate(5);
+      
+        return view('backend.layouts.Allocation.report',compact('Allocations'));
     }
     public function Store(Request $request)
     {
@@ -96,11 +102,17 @@ class AllocationController extends Controller
 
     Public function request()
     {
-        $Allocationreq=AssetRequest::with('Asset','User')->paginate(1);
+        $Allocationreq=AssetRequest::with('Asset','User')->paginate(5);
       
         return view('backend.layouts.Allocation.request',compact('Allocationreq'));
     }
      
+    Public function stockrequest()
+    {
+        $Allocationreq=AssetRequest::with('Asset','User')->where('is_requested',1)->paginate(5);
+      
+        return view('backend.layouts.Allocation.stockrequest',compact('Allocationreq'));
+    }
     public function approve($id,$status)
      {
         $Allocationreq=AssetRequest::find($id);

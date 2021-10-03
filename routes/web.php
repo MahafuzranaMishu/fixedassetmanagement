@@ -57,6 +57,7 @@ Route::group(['prefix'=>'Admin','middleware'=>'auth'],function(){
     Route::get('/user/assets',[UserController::class,'allasset'])->name('user.asset');
     Route::get('/user/requestassets',[UserController::class,'reqasset'])->name('user.request');
     Route::post('/user/request',[UserController::class,'requestasset'])->name('user.request.asset');
+    Route::get('/user/asset/request',[UserController::Class,'pendingrequest'])->name('user.assetreq');
     Route::get('/user/{id}/assets',[UserController::class,'userasset'])->name('own.asset');
     Route::get('/user/{id}/assets',[UserController::class,'userasset'])->name('own.asset');
 
@@ -92,6 +93,7 @@ Route::group(['prefix'=>'Admin','middleware'=>'auth'],function(){
     Route::get('/Supplier/edit/{id}',[SupplierController::Class,'edit'])->name('Supplier.edit');
     Route::put('/Supplier/update/{id}',[SupplierController::Class,'update'])->name('Supplier.update');
     Route::post('/Supplier/store',[SupplierController::Class,'Store'])->name('Supplier.store');
+    Route::get('/Supplier/{id}/assets',[SupplierController::class,'allasset'])->name('supplier.asset');
     
     Route::get('/Purchase',[PurchaseController::class,'Purchase'])->name('Purchase.list');
     Route::get('/Purchase/add',[PurchaseController::Class,'Create'])->name('Purchase.create');
@@ -107,6 +109,8 @@ Route::group(['prefix'=>'Admin','middleware'=>'auth'],function(){
     Route::get('/Allocation/update/{id}',[AllocationController::Class,'delete'])->name('Allocation.delete');
     Route::post('/Allocation/Store',[AllocationController::Class,'Store'])->name('Allocation.Store');
     Route::get('/Allocation/request',[AllocationController::Class,'request'])->name('Allocation.request');
+    Route::get('/Allocation/stock/request',[AllocationController::Class,'stockrequest'])->name('Allocation.stockrequest');
+    Route::get('/Allocation/report',[AllocationController::Class,'report'])->name('Allocation.report');
     Route::get('/Allocation/approve/{id}/{status}',[AllocationController::Class,'approve'])->name('Allocation.approve');
 
 

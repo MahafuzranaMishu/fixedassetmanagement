@@ -40,14 +40,7 @@
             <label for="p">Enter Price</label>
             <input value="{{$purchases->price}}" name="price" id="name" type="text" class="form-control" placeholder="Enter Asset Price">
         </div>
-        <div class="form-group">
-            <label for="ph">Image</label>
-            <input value="{{$purchases->image}}" class="form-control" name="image" id="ph" type="text" placeholder="Enter Image link "></input>
-        </div>
-        <div class="form-group">
-            <label for="st">Status</label>
-            <input value="{{$purchases->status}}" class="form-control" name="status" id="st" type="text" placeholder="Enter Status "></input>
-        </div>
+      
         <div class="form-group">
             <label for="Dt">Date</label>
             <input value="{{$purchases->buyingdate}}" class="form-control" name="date" id="dt" type="date" placeholder="Enter Image link "></input>

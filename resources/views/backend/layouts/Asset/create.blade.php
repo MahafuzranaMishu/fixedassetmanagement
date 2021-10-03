@@ -14,32 +14,21 @@
          </div>
         <div class="form-group">
             <label for="name">Enter Asset Name</label>
-            <input name="asset_name" id="name" type="text" class="form-control" placeholder="Enter Asset Name">
+            <input name="asset_name" id="name" type="text" class="form-control" required placeholder="Enter Asset Name">
         </div>
 
         <div class="form-group">
             <label for="E">Details</label>
-            <textarea class="form-control" name="Details" id="E" type="text" placeholder="Enter Details"></textarea>
+            <textarea class="form-control" name="Details" id="E" type="text" required placeholder="Enter Details"></textarea>
         </div>
         <div class="form-group">
             <label for="p">Enter Price</label>
-            <input name="price" id="name" type="text" class="form-control" placeholder="Enter Asset Price">
+            <input name="price" id="name" type="text" class="form-control" required placeholder="Enter Asset Price">
         </div>
-        <div class="form-group">
-         <label for="description">Upload Product Image</label>
-         <input type="file" class="form-control" name="image">
-      </div>>
-      <div class="form-group">
-            <label for="name">Enter Asset Unit</label>
-            <input name="unit" id="name" type="text" class="form-control" placeholder="Enter Asset Unit">
-        </div>
-        <div class="form-group">
-            <label for="st">Status</label>
-            <textarea class="form-control" name="status" id="st" type="text" placeholder="Enter Status "></textarea>
-        </div>
+        
         <div class="form-group">
             <label for="Dt">Date</label>
-            <input class="form-control" name="date" id="dt" type="date" placeholder="Enter Image link "></input>
+            <input class="form-control" name="date" id="dt" type="date" required placeholder="Enter Date "></input>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

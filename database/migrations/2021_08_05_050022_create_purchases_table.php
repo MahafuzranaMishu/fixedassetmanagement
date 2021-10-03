@@ -20,7 +20,7 @@ class CreatePurchasesTable extends Migration
             $table->integer('unit');
             $table->string('details',100);
             $table->double('price',10,2)->default(0.00);
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('status',10)->default('active');
             $table->string('buyingdate');
             $table->timestamps();

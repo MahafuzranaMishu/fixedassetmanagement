@@ -128,47 +128,65 @@ class UserController extends Controller
       return view('backend.layouts.User.assetrequest',compact('Assets','Users'));
     }
 
+    Public function pendingrequest()
+    {
+        $Allocationreq=AssetRequest::with('Asset','User')->where('user_id',auth()->user()->id)->paginate(5);
+      
+        return view('backend.layouts.User.assetreq',compact('Allocationreq'));
+    }
+
     public function requestasset(Request $request)
     {
 
         // dd($request->all());
         $checkStock =Stock::where('asset_id', $request->assetid)->first();
 
-        if($checkStock)
-        {
-        // dd($request->all());
-            
-            
-        if($checkStock->Unit >= $request->input('unit')){
-        
-        
-       AssetRequest::create([
+        if($checkStock){
            
-            'user_id'=>auth()->user()->id,
-            'asset_id'=>$request->assetid,
-            'unit'=>$request->unit,
-            
-            
-            
+                
+            if($checkStock->Unit == 0)
+            {
+             
 
-        ]);
-
-         
-          return redirect()->back()->with('message','Requested Successfully');
-        }
-        else
-        {
-
-            return redirect()->back()->with('message','Asset is stock out');
-        }
+                AssetRequest::create([
+            
+                    'user_id'=>auth()->user()->id,
+                    'asset_id'=>$request->assetid,
+                    'unit'=>$request->unit,
+                    'reason'=>$request->reason, 
+                    'is_requested' => 1
         
-    }
+                ]);
 
-    return redirect()->back()->with('message','item not found');    
+                return redirect()->back()->with('message','Asset is not available');
+
+                }else{
+                    if($checkStock->Unit >= $request->input('unit')){
+                    
+                        AssetRequest::create([
+                
+                            'user_id'=>auth()->user()->id,
+                            'asset_id'=>$request->assetid,
+                            'unit'=>$request->unit,
+                            'reason'=>$request->reason,  
+                
+                        ]);
+                    
+                
+                        return redirect()->back()->with('message','Requested Successfully');
+                    }else{
+                        
+                        return redirect()->back()->with('message','Asset is stock out');
+                    }
+                }
+               
+            
+
+            return redirect()->back()->with('message','item not found');    
         
-    }
+        }
 
-      
+    }  
 
 }
 

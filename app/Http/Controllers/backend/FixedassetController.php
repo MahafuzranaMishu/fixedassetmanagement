@@ -10,7 +10,7 @@ class FixedassetController extends Controller
 {
     public function Asset()
     {
-        $Assets=Asset::with('Category')->paginate(1);
+        $Assets=Asset::with('Category')->paginate(5);
         return view('backend.layouts.Asset.list',compact('Assets'));
         
     }
@@ -38,10 +38,10 @@ class FixedassetController extends Controller
            'category_id'=>$request->category_id,
            'details'=>$request->Details,
             'price'=>$request->price,
-            'unit'=>$request->unit,
-            'image'=>$fileName,
-            'status'=>$request->status,
-            'buyingdate'=>$request->date
+            // 'unit'=>$request->unit,
+            // 'image'=>$fileName,
+            // 'status'=>$request->status,
+            'buyingdate'=>$request->date,
 
         ]);
               

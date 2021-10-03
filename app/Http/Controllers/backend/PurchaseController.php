@@ -12,7 +12,7 @@ class PurchaseController extends Controller
 {
     public function Purchase()
     {
-        $Purchases=Purchase::with('Asset','Supplier')->Paginate(1);
+        $Purchases=Purchase::with('Asset','Supplier')->Paginate(5);
         //dd($Purchases);
         return view('backend.layouts.Purchase.list',compact('Purchases'));
     }
@@ -36,8 +36,8 @@ class PurchaseController extends Controller
            'details'=>$request->Details,
             'price'=>$request->price,
             
-            'image'=>$request->image,
-            'status'=>$request->status,
+            // 'image'=>$request->image,
+            // 'status'=>$request->status,
             'buyingdate'=>$request->date
 
         ]);

@@ -5,8 +5,6 @@
     <p class="alert alert-success">{{session()->get('message')}}</p>
 @endif
 
-<a class="btn btn-primary" href="{{route('Allocation.create')}}" role="button"> Add New Allocationt</a>
-
 
  <div id="printableArea">  
   <table class="table table-bordered">
@@ -20,7 +18,7 @@
       <!-- <th scope="col">Asset Name</th> -->
       <th scope="col">Details</th>
       <th scope="col">Allocation date</th>
-      <th scope="col">Action</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -34,22 +32,33 @@
       <td>{{$Allocation->details}}</td>
       <td>{{$Allocation->allocationdate}}</td>
  </div>
-      <td class="">
-                                         
-         <a onclick="return confirm('Are you sure you want to delete this item?');" href="{{route('Allocation.delete',$Allocation->id)}}" class="btn btn-danger"><i class="material-icons">Delete</i></a>
-         <a href="{{route('Allocation.edit',$Allocation->id)}}"  class="btn btn-info"><i class="material-icons">Edit</i></a>
-                                                                    
-      </td>
+      
     </tr>
   </div>
 
     @endforeach
   </tbody>
  </table>
- <a class="btn btn-primary" href="{{route('Allocation.report')}}" role="button">Genarte report</a>
 
-   
+ </div>
+   <div>
+     <button class="btn btn-success" onclick="printDiv('printableArea')">
+     <i class="bi bi-printer"></i> Print Report
+     </button>
+  </div>
+ <script type="text/javascript">
+        function printDiv(divName) {
+            var printContents = document.getElementById(divName).innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }
+    </script>
  
-</div>
+
 {{$Allocations->links('pagination::bootstrap-4')}}
 @endsection

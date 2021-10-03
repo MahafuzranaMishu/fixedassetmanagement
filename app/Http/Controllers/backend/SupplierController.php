@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\backend;
 use App\Models\Supplier;
+use App\Models\Purchase;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -9,13 +10,19 @@ class SupplierController extends Controller
 {
     public function Supplier()
     {
-        $supply=Supplier::Paginate(1);
+        $supply=Supplier::Paginate(5);
         return view('backend.layouts.Supplier.list',compact('supply'));
     }
 
     Public function Create()
     {
         return view('backend.layouts.Supplier.create');
+    }
+    public function allasset($id)
+    {
+        $assets=Purchase::where('supplier_id',$id)->get();
+        
+        return view('backend.layouts.Supplier.allasset',compact('assets'));
     }
 
     public function Store(Request $request)

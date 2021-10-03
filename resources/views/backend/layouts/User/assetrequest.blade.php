@@ -17,7 +17,11 @@
          </div>
          <div class="form-group">
             <label for="st">Unit</label>
-            <input class="form-control" name="unit" id="st" type="text" placeholder="Enter unit "></input>
+            <input class="form-control" name="unit" id="st" type="text" required placeholder="Enter unit "></input>
+        </div>
+        <div class="form-group">
+            <label for="st">Reason</label>
+            <input class="form-control" name="reason" id="st" type="text" required placeholder="Enter Reason "></input>
         </div>
         
         

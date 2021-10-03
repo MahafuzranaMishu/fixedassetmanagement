@@ -1,9 +1,7 @@
 @extends('backend.master')
 @section('content')
+<h1>Stock Request List</h1>
 
-<h1>Request List</h1>
-
-<a class="btn btn-Success" href="{{route('Allocation.stockrequest')}}" role="button"> View Stock Request</a>
 
     @if(session()->has('message'))
         <div class="row" style="padding: 10px;">
@@ -19,9 +17,7 @@
         <th scope="col">Asset Name</th>
         <th scope="col">Reason</th>
         <th scope="col">Unit</th>
-        <th scope="col">Status</th>
         <th scope="col">Request</th>
-        <th scope="col">Action</th>
         
         
     </tr>
@@ -35,26 +31,11 @@
         <td>{{$Allocation->asset->name}}</td>
         <td>{{$Allocation->reason}}</td>
         <td>{{$Allocation->unit}}</td>
-        <td>{{$Allocation->status}}</td>
         <td>@if($Allocation->is_requested == 1)
                 Requested
             @else
 
             @endif
-        </td>
-        <td>
-            <div class="dropdown show">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Confirmation   
-                </a>
-
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="{{route('Allocation.approve',[$Allocation->id,'status'=>'approved'])}}">Approve</a>
-                    <a class="dropdown-item" href="{{route('Allocation.approve',[$Allocation->id,'status'=>'cancelled'])}}">Cancel</a>
-                
-                </div>
-            </div>
-                    
         </td>
     </tr>
 @endforeach

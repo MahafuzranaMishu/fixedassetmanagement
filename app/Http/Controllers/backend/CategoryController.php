@@ -12,7 +12,7 @@ class CategoryController extends Controller
     {
         //get all data from category table
         //DML- select * from categories;
-        $categories=Category::paginate(2); // get(), first(),find();
+        $categories=Category::paginate(5); // get(), first(),find();
 
        return view('backend.layouts.category.list',compact('categories'));
     }

@@ -52,8 +52,8 @@
 <i class="fa fa-lock" aria-hidden="true"></i>
 </span>
 </div>
- <div class="form-group">
-  <input type="submit" value="Login" class="btn float-right login_btn">
+ <div class="form-group" style="text-align: center;">
+  <input type="submit" value="Login" class="btn btn-success" style="border-radius: 37%;">
  </div>
 <div class="text-center p-t-12">
 <span class="txt1">
@@ -61,11 +61,8 @@
 @if(session()->has('message'))
    <span class="alert alert-danger">{{session()->get('message')}}</span>
   @endif
-Forgot
 </span>
-<a class="txt2" href="#">
-Username / Password?
-</a>
+
 </div>
 <div class="text-center p-t-136">
 <a class="txt2" href="{{route('User.create')}}">

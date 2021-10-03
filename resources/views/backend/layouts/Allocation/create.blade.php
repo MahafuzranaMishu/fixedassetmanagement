@@ -28,16 +28,16 @@
          </div>
          <div class="form-group">
             <label for="st">Unit</label>
-            <textarea class="form-control" name="unit" id="st" type="text" placeholder="Enter unit "></textarea>
+            <input required="Unit" class="form-control" name="unit" id="st" type="text" placeholder="Enter unit "></input>
         </div>
         
         <div class="form-group">
             <label for="st">Details</label>
-            <textarea class="form-control" name="status" id="st" type="text" placeholder="Enter Details "></textarea>
+            <input  required="Details"class="form-control" name="status" id="st" type="text" placeholder="Enter Details "></input>
         </div>
         <div class="form-group">
             <label for="Dt">Date</label>
-            <input class="form-control" name="date" id="dt" type="date" placeholder="Enter Allocation Date "></input >
+            <input class="form-control" name="date" id="dt" value="{{date('Y-m-d')}}" min="{{date('Y-m-d')}}" type="date"  required placeholder="Enter Allocation Date "></input >
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

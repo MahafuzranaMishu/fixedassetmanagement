@@ -18,6 +18,8 @@ class CreateAssetRequestsTable extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('asset_id')->constrained('assets');
             $table->integer('unit');
+            $table->string('reason',200);
+            $table->boolean('is_requested')->default(false);
             $table->string('status',10)->default('pending');
             $table->timestamps();
         });
